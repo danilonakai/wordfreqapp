@@ -5,17 +5,46 @@
 body{
     background-color:#252525;
 }
+
+
+
+
+/* CONTAINER */
 .container{
-    max-width: 1000px;
-    margin: 0 auto;
+	width: 1200px;
+	margin:0 auto;
 }
+@media screen and (max-width:1250px){
+	.container{
+		 width: 1000px;
+	}
+}
+@media screen and (max-width:1050px){
+	.container{
+		 width: 800px;
+	}
+}
+@media screen and (max-width:850px){
+	.container{
+		 width: 90%;
+	}
+}
+@media screen and (max-width:650px){
+    .container{
+        width: 95%;
+   }
+}
+
+
 
 header{
     width: 100%;
-    height: 50px;
+    height: 60px;
     background-color: #00d7bb;
     margin-bottom: 30px;
     text-align: center;
+    box-sizing: border-box;
+    padding: 7px 0;
 }
 header h1{
     color:#252525;
@@ -25,7 +54,7 @@ header h1 i{
 }
 .content{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 .content .input{
     text-align: center;
@@ -69,17 +98,15 @@ header h1 i{
     background-color:#00d7bb;
     box-sizing: border-box;
     width: 100%;
-    height: 350px;
+    height: auto;
     border:1px solid #000;
     margin-bottom: 30px;
     padding: 15px;
     color:#252525;
+    border-radius: 10px;
 }
 .content .output .sidebar:first-child{
     height:170px;
-}
-.content .output .sidebar:last-child{
-    overflow: auto;
 }
 .content .output .sidebar h2{
     text-align: center;
@@ -94,4 +121,43 @@ header h1 i{
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
+}
+
+@media screen and (max-width:850px){
+    .content{
+        justify-content: space-between;
+    }
+    .content .input{
+        width: 48%;
+        height:auto;
+    }
+    .content .input #content-input{
+        width:100%;
+        height:auto;
+        min-height: 400px;
+    }
+    .content .output{
+        width:48%;
+        height:auto;
+    }
+    .content .output .sidebar, .content .output .sidebar:first-child{
+        height:auto;
+    }
+    
+}
+@media screen and (max-width:650px){
+	.content .input, .content .output{
+        width:49%;
+    }
+}
+@media screen and (max-width:500px){
+	.content{
+        display:block;
+    }
+    .content .input, .content .output{
+        width:100%;
+    }
+    .content .input{
+        margin-bottom:50px;
+    }
 }

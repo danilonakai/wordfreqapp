@@ -1,21 +1,29 @@
 var result = [];
 
-$('#check').click(function(){
-    let content = $('#content-input').val();
+function click_check_btn(){
+    let content = document.querySelector('#content-input').value;
     let lowercase = content.toLowerCase();
     let paragraphs = lowercase.split("\n\n" );
 
-    $(paragraphs).each(function(p){
-        words = paragraphs[p].split(" ");
+    paragraphs.forEach(p=>{
+        words = p.split(" ");
 
-        $(words).each(function(w){
-            word = words[w];
+        words.forEach(word=>{
             check_duplicate_words(text_processing(word));
         });
     });
 
     show_result(paragraphs.length);
-});
+
+    if(window.innerWidth <= 500){
+        console.log("test");
+        window.scrollTo({
+            top: document.querySelector('.content .output').offsetTop,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }
+}
 
 function text_processing(word){
     converted = word
@@ -47,10 +55,10 @@ function text_processing(word){
 function check_duplicate_words(word){
     let duplicate = false;
 
-    $(result).each(function(i){
-        if(result[i].word == word){
+    result.forEach(i=>{
+        if(i.word == word){
             duplicate = true;
-            result[i].counter = result[i].counter + 1;
+            i.counter = i.counter + 1;
         }
     });
 
@@ -66,16 +74,18 @@ function show_result(paragraphs){
     let word_counter = "";
     result.sort(sort_results);
 
-    $(result).each(function(e){
-        words = words += result[e].counter;
-        characters = characters += (String(result[e].word).length * result[e].counter);
-        word_counter = word_counter + '<li><strong>'+result[e].word+'</strong><span>'+result[e].counter+'</span></li>'; 
+    result.forEach(e=>{
+        words = words += e.counter;
+        characters = characters += (String(e.word).length * e.counter);
+        word_counter = word_counter + '<li><strong>'+e.word+'</strong><span>'+e.counter+'</span></li>'; 
     });
 
-    $('#words span').html(words);
-    $('#characters span').html(characters);
-    $('#paragraphs span').html(paragraphs);
-    $('#word-counter').html(word_counter);
+
+    document.querySelector('#words span').innerHTML = words;
+    document.querySelector('#characters span').innerHTML = characters;
+    document.querySelector('#paragraphs span').innerHTML = paragraphs;
+    document.querySelector('#word-counter').innerHTML = word_counter;
+
     result = [];
 }
 
