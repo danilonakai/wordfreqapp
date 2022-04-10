@@ -1,6 +1,9 @@
 *{
     margin: 0;
-    font-family: -webkit-pictograph;
+    padding:0;
+}
+*,body,h1,h2,input{
+    font-family: 'Work Sans', sans-serif;
 }
 body{
     background-color:#252525;
@@ -48,6 +51,7 @@ header{
 }
 header h1{
     color:#252525;
+    font-weight: 500;
 }
 header h1 i{
     margin-right: 10px;
@@ -70,7 +74,6 @@ header h1 i{
     box-sizing: border-box;
     padding: 15px 10px;
     font-size: 15px;
-    font-family: monospace;
     margin-bottom: 20px;
     background: transparent;
     border: 1px solid #00d7bb;
@@ -82,7 +85,6 @@ header h1 i{
     border: 1px solid #00d7bb;
     font-size: 15px;
     color:#00d7bb;
-    font-family: monospace;
     cursor:pointer;
     outline:none;
 }
@@ -112,6 +114,7 @@ header h1 i{
     text-align: center;
     border-bottom: 1px solid #000;
     margin-bottom: 20px;
+    font-weight: 500;
 }
 .content .output .sidebar ul{
     list-style: none;
@@ -121,6 +124,9 @@ header h1 i{
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
+}
+.content .output .sidebar ul li strong{
+    font-weight: 500;
 }
 
 @media screen and (max-width:850px){

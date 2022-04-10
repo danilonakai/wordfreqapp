@@ -74,10 +74,14 @@ function show_result(paragraphs){
     let word_counter = "";
     result.sort(sort_results);
 
+    console.log(result);
+
     result.forEach(e=>{
-        words = words += e.counter;
-        characters = characters += (String(e.word).length * e.counter);
-        word_counter = word_counter + '<li><strong>'+e.word+'</strong><span>'+e.counter+'</span></li>'; 
+        if(e.word !== undefined){
+            words = words += e.counter;
+            characters = characters += (String(e.word).length * e.counter);
+            word_counter = word_counter + '<li><strong>'+e.word+'</strong><span>'+e.counter+'</span></li>'; 
+        }
     });
 
 
